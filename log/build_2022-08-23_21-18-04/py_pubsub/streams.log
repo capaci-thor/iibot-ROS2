@@ -1,0 +1,43 @@
+[2.520s] Invoking command in '/home/iibot/iibot-ROS2/src/py_pubsub': PYTHONPATH=/home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/iibot/iibot-ROS2/build/py_pubsub/build install --prefix /home/iibot/iibot-ROS2/install/py_pubsub --record /home/iibot/iibot-ROS2/build/py_pubsub/install.log --single-version-externally-managed
+[3.528s] running egg_info
+[3.530s] creating ../../build/py_pubsub/py_pubsub.egg-info
+[3.531s] writing ../../build/py_pubsub/py_pubsub.egg-info/PKG-INFO
+[3.532s] writing dependency_links to ../../build/py_pubsub/py_pubsub.egg-info/dependency_links.txt
+[3.533s] writing entry points to ../../build/py_pubsub/py_pubsub.egg-info/entry_points.txt
+[3.533s] writing requirements to ../../build/py_pubsub/py_pubsub.egg-info/requires.txt
+[3.534s] writing top-level names to ../../build/py_pubsub/py_pubsub.egg-info/top_level.txt
+[3.534s] writing manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[3.542s] reading manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[3.545s] writing manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[3.546s] running build
+[3.546s] running build_py
+[3.547s] creating /home/iibot/iibot-ROS2/build/py_pubsub/build
+[3.547s] creating /home/iibot/iibot-ROS2/build/py_pubsub/build/lib
+[3.548s] creating /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub
+[3.548s] copying py_pubsub/publisher_member_function.py -> /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub
+[3.548s] copying py_pubsub/YB_Pcb_Car.py -> /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub
+[3.549s] copying py_pubsub/subscriber_member_function.py -> /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub
+[3.550s] copying py_pubsub/__init__.py -> /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub
+[3.551s] running install
+[3.551s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[3.552s]   warnings.warn(
+[3.552s] running install_lib
+[3.555s] creating /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[3.556s] copying /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub/publisher_member_function.py -> /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[3.557s] copying /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub/YB_Pcb_Car.py -> /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[3.557s] copying /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub/subscriber_member_function.py -> /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[3.558s] copying /home/iibot/iibot-ROS2/build/py_pubsub/build/lib/py_pubsub/__init__.py -> /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[3.560s] byte-compiling /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/publisher_member_function.py to publisher_member_function.cpython-310.pyc
+[3.563s] byte-compiling /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/YB_Pcb_Car.py to YB_Pcb_Car.cpython-310.pyc
+[3.566s] byte-compiling /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/subscriber_member_function.py to subscriber_member_function.cpython-310.pyc
+[3.568s] byte-compiling /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/__init__.py to __init__.cpython-310.pyc
+[3.569s] running install_data
+[3.571s] copying resource/py_pubsub -> /home/iibot/iibot-ROS2/install/py_pubsub/share/ament_index/resource_index/packages
+[3.572s] copying package.xml -> /home/iibot/iibot-ROS2/install/py_pubsub/share/py_pubsub
+[3.573s] running install_egg_info
+[3.579s] Copying ../../build/py_pubsub/py_pubsub.egg-info to /home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages/py_pubsub-0.0.0-py3.10.egg-info
+[3.584s] running install_scripts
+[3.660s] Installing listener script to /home/iibot/iibot-ROS2/install/py_pubsub/lib/py_pubsub
+[3.660s] Installing talker script to /home/iibot/iibot-ROS2/install/py_pubsub/lib/py_pubsub
+[3.662s] writing list of installed files to '/home/iibot/iibot-ROS2/build/py_pubsub/install.log'
+[3.774s] Invoked command in '/home/iibot/iibot-ROS2/src/py_pubsub' returned '0': PYTHONPATH=/home/iibot/iibot-ROS2/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/iibot/iibot-ROS2/build/py_pubsub/build install --prefix /home/iibot/iibot-ROS2/install/py_pubsub --record /home/iibot/iibot-ROS2/build/py_pubsub/install.log --single-version-externally-managed
