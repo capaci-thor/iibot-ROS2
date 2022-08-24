@@ -21,12 +21,12 @@ from std_msgs.msg import Int32MultiArray
 import YB_Pcb_Car
 #Las lineas pasadas representan las dependencias del nodo que deben ir en 
 # package.xml
-
+car = YB_Pcb_Car.YB_Pcb_Car()
 
 class MinimalSubscriber(Node):
 
     def __init__(self):
-        car = YB_Pcb_Car.YB_Pcb_Car()
+        
         super().__init__('minimal_subscriber') #nombre del nodo
         #Mismos parametros que publisher
         self.subscription = self.create_subscription(
@@ -41,7 +41,7 @@ class MinimalSubscriber(Node):
         x = msg.data[0]
         y = msg.data[1]
         self.get_logger().info('I heard: "%s"' % str(msg.data))
-        self.car.Car_Run(x,y)
+        car.Car_Run(x,y)
         self.get_logger().info('X : "%d"' % x)
         self.get_logger().info('Y : "%d"' % y)
 
