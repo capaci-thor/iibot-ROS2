@@ -1,0 +1,7 @@
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+  File "/home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/subscriber_member_function.py", line 41
+    ·car.Car_Run(50,50)
+    ^
+SyntaxError: invalid character '·' (U+00B7)
+

@@ -1,0 +1,36 @@
+[0.701s] Invoking command in '/home/jeot/ros2_ws_iibot/src/py_pubsub': PYTHONPATH=/home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/jeot/ros2_ws_iibot/build/py_pubsub/build install --prefix /home/jeot/ros2_ws_iibot/install/py_pubsub --record /home/jeot/ros2_ws_iibot/build/py_pubsub/install.log --single-version-externally-managed
+[1.021s] running egg_info
+[1.022s] writing ../../build/py_pubsub/py_pubsub.egg-info/PKG-INFO
+[1.022s] writing dependency_links to ../../build/py_pubsub/py_pubsub.egg-info/dependency_links.txt
+[1.022s] writing entry points to ../../build/py_pubsub/py_pubsub.egg-info/entry_points.txt
+[1.022s] writing requirements to ../../build/py_pubsub/py_pubsub.egg-info/requires.txt
+[1.023s] writing top-level names to ../../build/py_pubsub/py_pubsub.egg-info/top_level.txt
+[1.025s] reading manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[1.026s] writing manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[1.026s] running build
+[1.026s] running build_py
+[1.026s] copying py_pubsub/subscriber_member_function.py -> /home/jeot/ros2_ws_iibot/build/py_pubsub/build/lib/py_pubsub
+[1.027s] copying py_pubsub/publisher_member_function.py -> /home/jeot/ros2_ws_iibot/build/py_pubsub/build/lib/py_pubsub
+[1.027s] running install
+[1.027s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.028s]   warnings.warn(
+[1.028s] running install_lib
+[1.030s] copying /home/jeot/ros2_ws_iibot/build/py_pubsub/build/lib/py_pubsub/subscriber_member_function.py -> /home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.030s] copying /home/jeot/ros2_ws_iibot/build/py_pubsub/build/lib/py_pubsub/publisher_member_function.py -> /home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.031s] byte-compiling /home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/subscriber_member_function.py to subscriber_member_function.cpython-310.pyc
+[1.031s]   File "/home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/subscriber_member_function.py", line 41
+[1.031s]     ·car.Car_Run(50,50)
+[1.032s]     ^
+[1.032s] SyntaxError: invalid character '·' (U+00B7)
+[1.032s] 
+[1.032s] byte-compiling /home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/publisher_member_function.py to publisher_member_function.cpython-310.pyc
+[1.032s] running install_data
+[1.033s] copying package.xml -> /home/jeot/ros2_ws_iibot/install/py_pubsub/share/py_pubsub
+[1.033s] running install_egg_info
+[1.036s] removing '/home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub-0.0.0-py3.10.egg-info' (and everything under it)
+[1.036s] Copying ../../build/py_pubsub/py_pubsub.egg-info to /home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages/py_pubsub-0.0.0-py3.10.egg-info
+[1.038s] running install_scripts
+[1.066s] Installing listener script to /home/jeot/ros2_ws_iibot/install/py_pubsub/lib/py_pubsub
+[1.066s] Installing talker script to /home/jeot/ros2_ws_iibot/install/py_pubsub/lib/py_pubsub
+[1.066s] writing list of installed files to '/home/jeot/ros2_ws_iibot/build/py_pubsub/install.log'
+[1.097s] Invoked command in '/home/jeot/ros2_ws_iibot/src/py_pubsub' returned '0': PYTHONPATH=/home/jeot/ros2_ws_iibot/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/jeot/ros2_ws_iibot/build/py_pubsub/build install --prefix /home/jeot/ros2_ws_iibot/install/py_pubsub --record /home/jeot/ros2_ws_iibot/build/py_pubsub/install.log --single-version-externally-managed
