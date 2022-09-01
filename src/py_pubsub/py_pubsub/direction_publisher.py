@@ -25,7 +25,7 @@ class MinimalPublisher(Node):
     def __init__(self):
         super().__init__('minimal_publisher') #nombre al nodo
         #El nodo publica mensajes del tipo string en "topic" con tamaño 10
-        self.publisher_ = self.create_publisher(Int32MultiArray, 'topic', 2)
+        self.publisher_ = self.create_publisher(Int32MultiArray, 'dir', 2)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
         #timer_period = 0.5  # seconds

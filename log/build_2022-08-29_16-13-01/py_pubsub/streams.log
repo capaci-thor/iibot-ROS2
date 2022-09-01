@@ -1,0 +1,36 @@
+[0.714s] Invoking command in '/home/jeot/iibot-ROS/src/py_pubsub': PYTHONPATH=/home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/jeot/iibot-ROS/build/py_pubsub/build install --prefix /home/jeot/iibot-ROS/install/py_pubsub --record /home/jeot/iibot-ROS/build/py_pubsub/install.log --single-version-externally-managed
+[1.000s] running egg_info
+[1.001s] writing ../../build/py_pubsub/py_pubsub.egg-info/PKG-INFO
+[1.001s] writing dependency_links to ../../build/py_pubsub/py_pubsub.egg-info/dependency_links.txt
+[1.001s] writing entry points to ../../build/py_pubsub/py_pubsub.egg-info/entry_points.txt
+[1.002s] writing requirements to ../../build/py_pubsub/py_pubsub.egg-info/requires.txt
+[1.002s] writing top-level names to ../../build/py_pubsub/py_pubsub.egg-info/top_level.txt
+[1.005s] reading manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[1.007s] writing manifest file '../../build/py_pubsub/py_pubsub.egg-info/SOURCES.txt'
+[1.007s] running build
+[1.007s] running build_py
+[1.007s] copying py_pubsub/direction_publisher.py -> /home/jeot/iibot-ROS/build/py_pubsub/build/lib/py_pubsub
+[1.008s] copying py_pubsub/move_motors_subscriber.py -> /home/jeot/iibot-ROS/build/py_pubsub/build/lib/py_pubsub
+[1.008s] copying py_pubsub/publisher_gyro.py -> /home/jeot/iibot-ROS/build/py_pubsub/build/lib/py_pubsub
+[1.009s] running install
+[1.009s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.009s]   warnings.warn(
+[1.010s] running install_lib
+[1.011s] copying /home/jeot/iibot-ROS/build/py_pubsub/build/lib/py_pubsub/direction_publisher.py -> /home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.011s] copying /home/jeot/iibot-ROS/build/py_pubsub/build/lib/py_pubsub/move_motors_subscriber.py -> /home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.011s] copying /home/jeot/iibot-ROS/build/py_pubsub/build/lib/py_pubsub/publisher_gyro.py -> /home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub
+[1.012s] byte-compiling /home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/direction_publisher.py to direction_publisher.cpython-310.pyc
+[1.013s] byte-compiling /home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/move_motors_subscriber.py to move_motors_subscriber.cpython-310.pyc
+[1.013s] byte-compiling /home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub/publisher_gyro.py to publisher_gyro.cpython-310.pyc
+[1.014s] running install_data
+[1.015s] running install_egg_info
+[1.017s] removing '/home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub-0.0.0-py3.10.egg-info' (and everything under it)
+[1.017s] Copying ../../build/py_pubsub/py_pubsub.egg-info to /home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages/py_pubsub-0.0.0-py3.10.egg-info
+[1.019s] running install_scripts
+[1.044s] Installing dir script to /home/jeot/iibot-ROS/install/py_pubsub/lib/py_pubsub
+[1.045s] Installing gyro script to /home/jeot/iibot-ROS/install/py_pubsub/lib/py_pubsub
+[1.045s] Installing listener script to /home/jeot/iibot-ROS/install/py_pubsub/lib/py_pubsub
+[1.045s] Installing move script to /home/jeot/iibot-ROS/install/py_pubsub/lib/py_pubsub
+[1.045s] Installing talker script to /home/jeot/iibot-ROS/install/py_pubsub/lib/py_pubsub
+[1.046s] writing list of installed files to '/home/jeot/iibot-ROS/build/py_pubsub/install.log'
+[1.077s] Invoked command in '/home/jeot/iibot-ROS/src/py_pubsub' returned '0': PYTHONPATH=/home/jeot/iibot-ROS/install/py_pubsub/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/py_pubsub build --build-base /home/jeot/iibot-ROS/build/py_pubsub/build install --prefix /home/jeot/iibot-ROS/install/py_pubsub --record /home/jeot/iibot-ROS/build/py_pubsub/install.log --single-version-externally-managed

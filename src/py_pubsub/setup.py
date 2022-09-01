@@ -15,13 +15,16 @@ setup(
     zip_safe=True,
     maintainer='Eduardo Ortega',
     maintainer_email='rotjeot@gmail.com',
-    description='Ejemplo de un publisher y subscriber rclpy',
+    description='Nodes for move the robot',
     license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'talker = py_pubsub.publisher_member_function:main',
             'listener = py_pubsub.subscriber_member_function:main',
+            'move = py_pubsub.move_motors_subscriber:main',
+            'dir = py_pubsub.direction_publisher:main',
+            'gyro = py_pubsub.publisher_gyro:main',
         ],
     },
 )

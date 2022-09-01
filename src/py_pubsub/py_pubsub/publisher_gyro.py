@@ -16,7 +16,7 @@ import rclpy
 #Se importa Node porque se hara uso de el
 from rclpy.node import Node
 #Se importa el tipo de mensaje que el nodo usara para pasar datos sobre el topic
-from std_msgs.msg import Int32MultiArray
+from std_msgs.msg import Float32MultiArray
 #Las lineas pasadas representan las dependencias del nodo que deben ir en 
 # package.xml
 
@@ -25,25 +25,24 @@ class MinimalPublisher(Node):
     def __init__(self):
         super().__init__('minimal_publisher') #nombre al nodo
         #El nodo publica mensajes del tipo string en "topic" con tamaño 10
-        self.publisher_ = self.create_publisher(Int32MultiArray, 'topic', 2)
+        self.publisher_ = self.create_publisher(Float32MultiArray, 'topic', 3)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
-        #timer_period = 0.5  # seconds
-        #self.timer = self.create_timer(timer_period, self.timer_callback)
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
         #es un contador utilizado en el callback
-        #self.i = 0
-        while True:
-            msg = Int32MultiArray()
-            cor = str(input("enter data: "))
-            corSplit = cor.split(",")
-            x = int(corSplit[0])
-            y = int(corSplit[1])
-            vector = []
-            vector.append(x)
-            vector.append(y)
-            msg.data = vector
-            self.publisher_.publish(msg)
-            self.get_logger().info('Publishing: "%s"' % vector)
+        self.i = 0
+
+    def timer_callback(self):
+        msg = Float32MultiArray()
+        x = []
+        x.append(1.0)
+        x.append(2.0)
+        x.append(3.0)
+        msg.data = x
+        self.publisher_.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1.0
         
 
 
