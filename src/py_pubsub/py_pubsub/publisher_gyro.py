@@ -36,6 +36,8 @@ ACCEL_ZOUT_H = 0x3F
 GYRO_XOUT_H  = 0x43
 GYRO_YOUT_H  = 0x45
 GYRO_ZOUT_H  = 0x47
+Device_Address = 0x68   # MPU6050 device address
+bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
 
 
 def MPU_Init():
@@ -81,11 +83,8 @@ class MinimalPublisher(Node):
         self.i = 0
 
     def timer_callback(self):
-        msg = Float32MultiArray()
-        bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
-        Device_Address = 0x68   # MPU6050 device address
+        msg = Float32MultiArray()    
         MPU_Init()
-        
         gyro_x = read_raw_data(GYRO_XOUT_H)/131.0
         gyro_y = read_raw_data(GYRO_YOUT_H)/131.0
         gyro_z = read_raw_data(GYRO_ZOUT_H)/131.0
