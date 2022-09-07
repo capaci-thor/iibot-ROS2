@@ -38,7 +38,7 @@ GYRO_YOUT_H  = 0x45
 GYRO_ZOUT_H  = 0x47
 Device_Address = 0x68   # MPU6050 device address
 bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
-
+sleep(1)
 
 def MPU_Init():
 	#write to sample rate register
