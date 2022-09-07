@@ -92,7 +92,7 @@ class MinimalPublisher(Node):
         gyro.append(gyro_x)
         gyro.append(gyro_y)
         gyro.append(gyro_z)
-        msg.data = x
+        msg.data = gyro
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1.0
