@@ -25,6 +25,7 @@ setup(
             'move = py_pubsub.move_motors_subscriber:main',
             'dir = py_pubsub.direction_publisher:main',
             'gyro = py_pubsub.publisher_gyro:main',
+            'acel = py_pubsub.publisher_acel:main',
         ],
     },
 )
