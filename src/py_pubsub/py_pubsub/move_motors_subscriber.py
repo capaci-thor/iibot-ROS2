@@ -142,11 +142,11 @@ class YB_Pcb_Car(object):
 
 car = YB_Pcb_Car()
 
-class MinimalSubscriber(Node):
+class MoveSubscriber(Node):
 
     def __init__(self):
         
-        super().__init__('minimal_subscriber') #nombre del nodo
+        super().__init__('move_motors_subscriber') #nombre del nodo
         #Mismos parametros que publisher
         self.subscription = self.create_subscription(
             Int32MultiArray,
@@ -169,14 +169,14 @@ def main(args=None):
     
     rclpy.init(args=args)
 
-    minimal_subscriber = MinimalSubscriber()
+    move_subscriber = MoveSubscriber()
 
-    rclpy.spin(minimal_subscriber)
+    rclpy.spin(move_subscriber)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    minimal_subscriber.destroy_node()
+    move_subscriber.destroy_node()
     rclpy.shutdown()
 
 

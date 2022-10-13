@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'py_pubsub'
+package_name = 'py_pubSensors'
 
 setup(
     name=package_name,
@@ -15,13 +15,13 @@ setup(
     zip_safe=True,
     maintainer='Eduardo Ortega',
     maintainer_email='rotjeot@gmail.com',
-    description='Nodes for move the robot',
+    description='Nodes scan sensors of robot',
     license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'move = py_pubsub.move_motors_subscriber:main',
-            'dir = py_pubsub.direction_publisher:main',
+            'gyro = py_pubSensors.publisher_gyro:main',
+            'acel = py_pubSensors.publisher_acel:main',
         ],
     },
 )
