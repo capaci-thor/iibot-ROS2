@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'gyro = py_pubSensors.publisher_gyro:main',
-            'acel = py_pubSensors.publisher_acel:main',
+            'gyro = py_pubsensors.publisher_gyro:main',
+            'acel = py_pubsensors.publisher_acel:main',
         ],
     },
 )

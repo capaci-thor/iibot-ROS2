@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>py_pubSensors</name>
+  <name>py_pubsensors</name>
   <version>0.0.1</version>
   <description>Publishers usando rclpy para la creacion de nodos que mandes información de los sensores</description>
   <maintainer email="rotjeot@gmail.com">Eduardo Ortega</maintainer>
