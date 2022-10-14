@@ -15,7 +15,7 @@ I2C_SLAVE_ADDRESS = 0x8 #Arduino was configured for this adress
 class ConterLeftPublisher(Node):
 
     def __init__(self):
-        super().__init__('publisher_accelerometer') #nombre al nodo
+        super().__init__('publisher_left_encoder') #nombre al nodo
         #El nodo publica mensajes del tipo Float en array en "accel" con tamaño 3
         self.publisher_ = self.create_publisher(Int32, 'l_count',1)
         #El temporizador se crea con un callback para ejecutarse cada 
