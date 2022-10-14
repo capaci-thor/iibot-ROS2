@@ -17,7 +17,7 @@ class ConterLeftPublisher(Node):
     def __init__(self):
         super().__init__('publisher_accelerometer') #nombre al nodo
         #El nodo publica mensajes del tipo Float en array en "accel" con tamaño 3
-        self.publisher_ = self.create_publisher(Int32, 'l_count')
+        self.publisher_ = self.create_publisher(Int32, 'l_count',1)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
         timer_period = 0.5  # seconds
@@ -26,7 +26,7 @@ class ConterLeftPublisher(Node):
         self.i = 0
 
     def timer_callback(self):
-        msg = Float32MultiArray()    
+        msg = Int32()    
         bus = smbus.SMBus(1)
         slaveAddress = I2C_SLAVE_ADDRESS
 
@@ -37,8 +37,8 @@ class ConterLeftPublisher(Node):
         try:
             bus.write_byte(slaveAddress,  1)
             data=bus.read_byte(slaveAddress)
-            print(data)
-            sleep(1)
+            #print(data)
+            data = int(data)
         except:
             print("remote i/o error")
             sleep(0.5)
