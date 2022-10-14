@@ -20,10 +20,10 @@ class ConterLeftPublisher(Node):
         self.publisher_ = self.create_publisher(Int32, 'l_count',1)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
-        timer_period = 0.5  # seconds
+        timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         #es un contador utilizado en el callback
-        self.i = 0
+        #self.i = 0
 
     def timer_callback(self):
         msg = Int32()    
@@ -32,7 +32,7 @@ class ConterLeftPublisher(Node):
 
         BytesToSend = ConvertStringsToBytes("1")
         bus.write_byte(slaveAddress,  1)
-        sleep(0.1)
+        #sleep(0.1)
 
         try:
             bus.write_byte(slaveAddress,  1)
@@ -45,7 +45,7 @@ class ConterLeftPublisher(Node):
         msg.data = data
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
-        self.i += 1.0
+        #self.i += 1.0
 
 
 def ConvertStringsToBytes(src):
