@@ -11,15 +11,17 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
+    #install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='iibot',
-    maintainer_email='iibot@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer='Eduardo Ortega',
+    maintainer_email='rotjeot@gmail.com',
+    description='Nodes scan sensors of robot',
+    license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'gyro = py_pubsensors.publisher_gyro:main',
+            'acel = py_pubsensors.publisher_acel:main',
         ],
     },
 )
