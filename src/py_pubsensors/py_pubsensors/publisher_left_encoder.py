@@ -2,7 +2,7 @@ import rclpy
 #Se importa Node porque se hara uso de el
 from rclpy.node import Node
 #Se importa el tipo de mensaje que el nodo usara para pasar datos sobre el topic
-from std_msgs.msg import Float32MultiArray
+from std_msgs.msg import Int32
 #Las lineas pasadas representan las dependencias del nodo que deben ir en 
 # package.xml
 #For I2C com
