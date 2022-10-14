@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'py_pubSensors'
+package_name = 'py_pubsensors'
 
 setup(
     name=package_name,
