@@ -30,7 +30,7 @@ class ConterLeftPublisher(Node):
         bus = smbus.SMBus(1)
         slaveAddress = I2C_SLAVE_ADDRESS
 
-        BytesToSend = self.ConvertStringsToBytes("1")
+        BytesToSend = ConvertStringsToBytes("1")
         bus.write_byte(slaveAddress,  1)
         sleep(0.1)
 
@@ -47,13 +47,12 @@ class ConterLeftPublisher(Node):
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1.0
 
-    def ConvertStringsToBytes(src):
-        converted = []
-        for b in src:
-            converted.append(ord(b))
-        return converted
-        
 
+def ConvertStringsToBytes(src):
+    converted = []
+    for b in src:
+        converted.append(ord(b))
+    return converted
 
 
 def main(args=None):
