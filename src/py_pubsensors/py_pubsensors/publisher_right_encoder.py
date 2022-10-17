@@ -22,7 +22,6 @@ class ConterLeftPublisher(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
         #es un contador utilizado en el callback
         #self.i = 0
-        ser
 
     def timer_callback(self):
         msg = Int32() 
