@@ -37,14 +37,10 @@ class ConterLeftPublisher(Node):
 
         try:
             ser.write("0".encode())
-            data = -1
-            while True:
-                data = ser.read(1).decode()
-                if data > 0 :
-                    
-                    break
-            #print(data)
-            data = int(data)
+            x=ser.readline().decode()
+            x = x.replace("\n","")
+            x.replace("\r","")
+            data = int(x)
         except:
             print("Serial error")
             sleep(0.5)
@@ -52,7 +48,6 @@ class ConterLeftPublisher(Node):
         msg.data = data
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
-        data = -1
         #self.i += 1.0
 
 
