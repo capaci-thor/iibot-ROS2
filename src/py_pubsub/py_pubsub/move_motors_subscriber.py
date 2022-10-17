@@ -161,8 +161,8 @@ class MoveSubscriber(Node):
         y = msg.data[1]
         self.get_logger().info('I heard: "%s"' % str(msg.data))
         car.Car_Run(x,y)
-        self.get_logger().info('X : "%d"' % x)
-        self.get_logger().info('Y : "%d"' % y)
+        #self.get_logger().info('X : "%d"' % x)
+        #self.get_logger().info('Y : "%d"' % y)
 
 
 def main(args=None):
