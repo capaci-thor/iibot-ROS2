@@ -39,7 +39,7 @@ class ConterLeftPublisher(Node):
             ser.write("0".encode())
             x=ser.readline().decode()
             x = x.replace("\n","")
-            x.replace("\r","")
+            x = x.replace("\r","")
             data = int(x)
         except:
             print("Serial error")
