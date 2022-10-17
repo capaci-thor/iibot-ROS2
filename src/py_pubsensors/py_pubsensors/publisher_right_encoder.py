@@ -26,7 +26,6 @@ class ConterLeftPublisher(Node):
         self.publisher_ = self.create_publisher(Int32, 'r_count',1)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
-        
         timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         #es un contador utilizado en el callback
@@ -41,8 +40,6 @@ class ConterLeftPublisher(Node):
         x = x.replace("\n","")
         x = x.replace("\r","")
         data = int(x)
-
-
         msg.data = data
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
