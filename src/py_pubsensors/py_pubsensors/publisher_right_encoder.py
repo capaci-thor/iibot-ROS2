@@ -25,7 +25,7 @@ class ConterLeftPublisher(Node):
         parity=PARITY_NONE,
         stopbits=STOPBITS_ONE,
         bytesize=EIGHTBITS,
-        timeout=5
+        timeout=10
         )
         timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
@@ -34,7 +34,7 @@ class ConterLeftPublisher(Node):
 
     def timer_callback(self):
         msg = Int32() 
-        data = -1
+        #data = -1
         try:
             ser.write("0".encode())
             x=ser.readline().decode()
