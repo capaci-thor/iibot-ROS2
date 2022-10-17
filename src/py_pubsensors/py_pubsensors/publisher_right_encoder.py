@@ -9,17 +9,7 @@ from time import sleep
 
 from serial import *
 
-
-class ConterLeftPublisher(Node):
-    ser = Serial()
-
-    def __init__(self):
-        super().__init__('publisher_right_encoder') #nombre al nodo
-        #El nodo publica mensajes del tipo Float en array en "accel" con tamaño 3
-        self.publisher_ = self.create_publisher(Int32, 'r_count',1)
-        #El temporizador se crea con un callback para ejecutarse cada 
-        # 0,5 segundos.
-        ser = Serial(
+ser = Serial(
         port='/dev/ttyAMA0',
         baudrate = 9600,
         parity=PARITY_NONE,
@@ -27,12 +17,23 @@ class ConterLeftPublisher(Node):
         bytesize=EIGHTBITS,
         timeout=10
         )
+
+class ConterLeftPublisher(Node):
+
+    def __init__(self):
+        super().__init__('publisher_right_encoder') #nombre al nodo
+        #El nodo publica mensajes del tipo Float en array en "accel" con tamaño 3
+        self.publisher_ = self.create_publisher(Int32, 'r_count',1)
+        #El temporizador se crea con un callback para ejecutarse cada 
+        # 0,5 segundos.
+        
         timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         #es un contador utilizado en el callback
         #self.i = 0
 
     def timer_callback(self):
+        global ser
         msg = Int32() 
         #data = -1
         ser.write("0".encode())
