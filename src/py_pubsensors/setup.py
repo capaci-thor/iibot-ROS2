@@ -23,6 +23,7 @@ setup(
             'gyro = py_pubsensors.publisher_gyro:main',
             'acel = py_pubsensors.publisher_acel:main',
             'l_count = py_pubsensors.publisher_left_encoder:main',
+            'r_count = py_pubsensors.publisher_right_encoder:main',
         ],
     },
 )
