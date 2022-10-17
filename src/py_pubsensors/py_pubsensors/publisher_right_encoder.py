@@ -32,11 +32,11 @@ class ConterLeftPublisher(Node):
         parity=PARITY_NONE,
         stopbits=1,
         bytesize=8,
-        timeout=1
+        timeout=5
         )
 
         try:
-            ser.write("0")
+            ser.write("0".encode())
             data = ser.readline().decode()
             #print(data)
             data = int(data)
