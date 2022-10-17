@@ -34,7 +34,7 @@ class ConterLeftPublisher(Node):
 
     def timer_callback(self):
         msg = Int32() 
-
+        data = -1
         try:
             ser.write("0".encode())
             x=ser.readline().decode()
