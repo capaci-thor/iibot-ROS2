@@ -41,6 +41,7 @@ class ConterLeftPublisher(Node):
             while True:
                 data = ser.read(1).decode()
                 if data > 0 :
+                    
                     break
             #print(data)
             data = int(data)
@@ -51,6 +52,7 @@ class ConterLeftPublisher(Node):
         msg.data = data
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
+        data = -1
         #self.i += 1.0
 
 
