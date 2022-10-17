@@ -37,7 +37,11 @@ class ConterLeftPublisher(Node):
 
         try:
             ser.write("0".encode())
-            data = ser.readline().decode()
+            data = -1
+            while True:
+                data = ser.readline().decode()
+                if data > 0 :
+                    break
             #print(data)
             data = int(data)
         except:
