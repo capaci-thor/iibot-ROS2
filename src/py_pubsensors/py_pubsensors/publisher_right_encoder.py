@@ -35,15 +35,12 @@ class ConterLeftPublisher(Node):
     def timer_callback(self):
         msg = Int32() 
         #data = -1
-        try:
-            ser.write("0".encode())
-            x=ser.readline().decode()
-            x = x.replace("\n","")
-            x = x.replace("\r","")
-            data = int(x)
-        except:
-            print("Serial error")
-            sleep(0.5)
+        ser.write("0".encode())
+        x=ser.readline().decode()
+        x = x.replace("\n","")
+        x = x.replace("\r","")
+        data = int(x)
+
 
         msg.data = data
         self.publisher_.publish(msg)
