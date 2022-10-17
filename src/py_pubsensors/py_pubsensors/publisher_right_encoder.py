@@ -11,6 +11,7 @@ from serial import *
 
 
 class ConterLeftPublisher(Node):
+    ser = Serial()
 
     def __init__(self):
         super().__init__('publisher_right_encoder') #nombre al nodo
@@ -18,14 +19,6 @@ class ConterLeftPublisher(Node):
         self.publisher_ = self.create_publisher(Int32, 'r_count',1)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
-        timer_period = 1  # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback)
-        #es un contador utilizado en el callback
-        #self.i = 0
-
-    def timer_callback(self):
-        msg = Int32() 
-
         ser = Serial(
         port='/dev/ttyAMA0',
         baudrate = 9600,
@@ -34,6 +27,15 @@ class ConterLeftPublisher(Node):
         bytesize=8,
         timeout=5
         )
+        timer_period = 1  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        #es un contador utilizado en el callback
+        #self.i = 0
+
+    def timer_callback(self):
+        msg = Int32() 
+
+        
 
         try:
             ser.write("0".encode())
