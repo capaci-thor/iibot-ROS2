@@ -34,7 +34,7 @@ class MoveSubscriber(Node):
         global rpm_l
         global v_l
         rpm_l = 60 * (x/20)
-        v_l = (math.pi * 6.6 * rpm_l)/100 #m/min
+        v_l = (math.pi * 6.6 * rpm_l)/(100*60) #m/s
         self.get_logger().info('I heard in left: "%s"' % str(v_l))
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
@@ -44,7 +44,7 @@ class MoveSubscriber(Node):
         global rpm_r
         global v_r
         rpm_r = 60 * (x/20)
-        v_r = (math.pi * 6.6 * rpm_r)/100 #m/min
+        v_r = (math.pi * 6.6 * rpm_r)/(100*60) #m/s
         self.get_logger().info('I heard in right: "%s"' % str(v_r))
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
