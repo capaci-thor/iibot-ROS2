@@ -1,3 +1,4 @@
+from telnetlib import WILL
 import rclpy
 #Se importa Node porque se hara uso de el
 from rclpy.node import Node
@@ -17,6 +18,8 @@ rpm_l = 0.0
 rpm_r = 0.0
 v_l = 0.0
 v_r = 0.0
+inter_l = 0
+inter_r = 0
 
 class MoveSubscriber(Node):
 
@@ -36,6 +39,7 @@ class MoveSubscriber(Node):
         rpm_l = 60 * (x/20)
         v_l = (math.pi * 6.6 * rpm_l)/(100*60) #m/s
         self.get_logger().info('I heard in left: "%s"' % str(v_l))
+        self.lyapunov(self)
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
 
@@ -46,11 +50,28 @@ class MoveSubscriber(Node):
         rpm_r = 60 * (x/20)
         v_r = (math.pi * 6.6 * rpm_r)/(100*60) #m/s
         self.get_logger().info('I heard in right: "%s"' % str(v_r))
+        self.lyapunov(self)
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
 
     def lyapunov(self):
-        i = 0
+        r = 6.6
+        b = 10
+        #Gains
+        k1 = 1
+        k2 = 1
+        q2 = 0.5
+        #ref en metros
+        Pxd = -1
+        Pyd = 3.5
+        phid = 180 * (math.pi/180)
+        #kinematics
+        wl = (2*math.pi*rpm_l)/(60)
+        wr = (2*math.pi*rpm_r)/(60)
+        v = (r*(wl+wr))/2
+        w = (r*(wr-wl))/2*b
+        self.get_logger().info('vel: "%s"' % str(v))
+        self.get_logger().info('w: "%s"' % str(w))
 
 
 
