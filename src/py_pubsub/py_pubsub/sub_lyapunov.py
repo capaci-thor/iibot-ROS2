@@ -7,11 +7,11 @@ from std_msgs.msg import Int32
 import smbus
 import time
 import math
-import YB_Pcb_Car
+#import YB_Pcb_Car
 #Las lineas pasadas representan las dependencias del nodo que deben ir en 
 # package.xml
 
-car = YB_Pcb_Car.YB_Pcb_Car()
+#car = YB_Pcb_Car.YB_Pcb_Car()
 
 class MoveSubscriber(Node):
 
