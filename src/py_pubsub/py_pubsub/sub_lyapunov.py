@@ -25,15 +25,16 @@ class MoveSubscriber(Node):
         self.r_count
 
     def lc_callback(self, msg):
-        x = msg.data 
-        self.get_logger().info('I heard in left: "%s"' % str(msg.data))
+        x = int(msg.data)
+        rpm_l = 60 * (x/20)
+        self.get_logger().info('I heard in left: "%s"' % str(rpm_l))
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
 
     def lr_callback(self, msg):
-        x = msg.data
-        self.get_logger().info('I heard in right: "%s"' % str(msg.data))
-        
+        x = int(msg.data)
+        rpm_r = 60 * (x/20)
+        self.get_logger().info('I heard in right: "%s"' % str(rpm_r))
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
 
