@@ -13,6 +13,11 @@ import math
 
 #car = YB_Pcb_Car.YB_Pcb_Car()
 
+rpm_l = 0.0
+rpm_r = 0.0
+v_l = 0.0
+v_r = 0.0
+
 class MoveSubscriber(Node):
 
     def __init__(self):
@@ -26,17 +31,27 @@ class MoveSubscriber(Node):
 
     def lc_callback(self, msg):
         x = int(msg.data)
+        global rpm_l
+        global v_l
         rpm_l = 60 * (x/20)
-        self.get_logger().info('I heard in left: "%s"' % str(rpm_l))
+        v_l = math.pi * 6.6 * rpm_l #cm/min
+        self.get_logger().info('I heard in left: "%s"' % str(v_l))
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
 
     def lr_callback(self, msg):
         x = int(msg.data)
+        global rpm_r
+        global v_r
         rpm_r = 60 * (x/20)
-        self.get_logger().info('I heard in right: "%s"' % str(rpm_r))
+        v_r = math.pi * 6.6 * rpm_r #cm/min
+        self.get_logger().info('I heard in right: "%s"' % str(v_r))
         #self.get_logger().info('X : "%d"' % x)
         #self.get_logger().info('Y : "%d"' % y)
+
+    def lyapunov(self):
+        i = 0
+
 
 
 def main(args=None):
