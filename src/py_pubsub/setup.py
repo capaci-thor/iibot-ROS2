@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'move = py_pubsub.move_motors_subscriber:main',
             'dir = py_pubsub.direction_publisher:main',
+            'lyapunov = py_pubsub.sub_lyapunov:main',
         ],
     },
 )

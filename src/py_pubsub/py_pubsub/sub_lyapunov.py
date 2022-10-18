@@ -17,7 +17,7 @@ class MoveSubscriber(Node):
 
     def __init__(self):
         
-        super().__init__('move_motors_subscriber') #nombre del nodo
+        super().__init__('Lyapunov') #nombre del nodo
         #Mismos parametros que publisher
         self.l_count = self.create_subscription(Int32, 'l_count', self.lc_callback, 1)
         self.r_count = self.create_subscription(Int32, 'r_count', self.lr_callback, 1)
