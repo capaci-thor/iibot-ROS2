@@ -17,7 +17,7 @@ ser = Serial(
         bytesize=EIGHTBITS,
         timeout=10
         )
-        
+
 I2C_SLAVE_ADDRESS = 0x8 #Arduino was configured for this adress
 
 
@@ -26,7 +26,6 @@ class DirectionPublisher(Node):
     def __init__(self):
         super().__init__('encoders_publisher') #nombre al nodo
         #El nodo publica mensajes del tipo string en "topic" con tamaño 10
-        self.get_logger().info("Se crea bien")
         self.publisher_ = self.create_publisher(Int32MultiArray, 'count', 2)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
@@ -46,7 +45,7 @@ class DirectionPublisher(Node):
         c_r = ser.readline().decode()
         c_r = c_r.replace("\n","")
         c_r = c_r.replace("\r","")
-        vector.append(int(c_r))
+        vector.append(int(0))
 
 
         #code for left encoder
@@ -62,7 +61,7 @@ class DirectionPublisher(Node):
         except:
             print("remote i/o error")
             sleep(0.5)
-        vector.append(c_l)
+        vector.append(0)
 
         #send msg
         msg.data = vector
