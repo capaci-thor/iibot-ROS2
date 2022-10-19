@@ -53,8 +53,8 @@ class MoveSubscriber(Node):
         v_l = (math.pi * 6.6 * rpm_l)/(100*60) #m/s
 
 
-        self.get_logger().info('I heard in left: "%s"' % str(v_l))
-        self.get_logger().info('I heard in right: "%s"' % str(v_r))
+        self.get_logger().info('vel left: "%s"' % str(v_l))
+        self.get_logger().info('vel right: "%s"' % str(v_r))
         #self.lyapunov()
 
     def lyapunov(self):
