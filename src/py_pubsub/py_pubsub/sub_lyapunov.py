@@ -1,9 +1,10 @@
+from cmath import sqrt
 from telnetlib import WILL
 import rclpy
 #Se importa Node porque se hara uso de el
 from rclpy.node import Node
 #Se importa el tipo de mensaje que el nodo usara para pasar datos sobre el topic
-from std_msgs.msg import Int32
+from std_msgs.msg import Int32MultiArray
 #biblioteca para el control de las ruedas
 import smbus
 import time
@@ -27,32 +28,34 @@ class MoveSubscriber(Node):
         
         super().__init__('Lyapunov') #nombre del nodo
         #Mismos parametros que publisher
-        self.l_count = self.create_subscription(Int32, 'l_count', self.lc_callback, 1)
-        self.r_count = self.create_subscription(Int32, 'r_count', self.lr_callback, 1)
-        self.l_count  # prevent unused variable warning
-        self.r_count
+        self.count = self.create_subscription(Int32MultiArray, 'count', self.listener_callback, 2)
+        self.count  # prevent unused variable warning
 
-    def lc_callback(self, msg):
-        x = int(msg.data)
-        global rpm_l
-        global v_l
-        rpm_l = 60 * (x/20)
-        v_l = (math.pi * 6.6 * rpm_l)/(100*60) #m/s
-        self.get_logger().info('I heard in left: "%s"' % str(v_l))
-        self.lyapunov()
-        #self.get_logger().info('X : "%d"' % x)
-        #self.get_logger().info('Y : "%d"' % y)
 
-    def lr_callback(self, msg):
-        x = int(msg.data)
+    def listener_callback(self, msg):
+        c_r = msg.data[0]
+        c_l = msg.data[1]
+
+        global inter_r
         global rpm_r
         global v_r
-        rpm_r = 60 * (x/20)
+
+        global inter_l
+        global rpm_l
+        global v_l
+
+        inter_r += c_r
+        rpm_r = 60 * (c_r/20)
         v_r = (math.pi * 6.6 * rpm_r)/(100*60) #m/s
+
+        inter_l += c_l
+        rpm_l = 60 * (c_l/20)
+        v_l = (math.pi * 6.6 * rpm_l)/(100*60) #m/s
+
+
+        self.get_logger().info('I heard in left: "%s"' % str(v_l))
         self.get_logger().info('I heard in right: "%s"' % str(v_r))
-        self.lyapunov()
-        #self.get_logger().info('X : "%d"' % x)
-        #self.get_logger().info('Y : "%d"' % y)
+        #self.lyapunov()
 
     def lyapunov(self):
         r = 6.6
@@ -72,6 +75,10 @@ class MoveSubscriber(Node):
         w = (r*(wr-wl))/2*b
         self.get_logger().info('vel: "%s"' % str(v))
         self.get_logger().info('w: "%s"' % str(w))
+        x = v*(math.cos(w))
+        y = v*(math.sin(w))
+        
+
 
 
 
