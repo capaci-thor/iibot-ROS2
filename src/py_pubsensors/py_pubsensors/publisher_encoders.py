@@ -54,10 +54,11 @@ class DirectionPublisher(Node):
         try:
             bus.write_byte(slaveAddress,  1)
             c_l = bus.read_byte(slaveAddress)
+            c_l = int(c_l)            
         except:
             print("remote i/o error")
             sleep(0.5)
-        vector.append(int(c_l))
+        vector.append(c_l)
 
         #send msg
         msg.data = vector
