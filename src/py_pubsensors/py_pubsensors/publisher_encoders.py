@@ -36,7 +36,7 @@ class DirectionPublisher(Node):
 
     def timer_callback(self):
         global ser
-        msg = Int32MultiArray
+        msg = Int32MultiArray()
         vector = []
 
 
@@ -45,7 +45,7 @@ class DirectionPublisher(Node):
         c_r = ser.readline().decode()
         c_r = c_r.replace("\n","")
         c_r = c_r.replace("\r","")
-        vector.append(int(0))
+        vector.append(int(c_r))
 
 
         #code for left encoder
@@ -61,12 +61,12 @@ class DirectionPublisher(Node):
         except:
             print("remote i/o error")
             sleep(0.5)
-        vector.append(0)
+        vector.append(c_l)
 
         #send msg
         msg.data = vector
         self.get_logger().info(str(vector))
-        #self.publisher_.publish(msg)
+        self.publisher_.publish(msg)
         self.get_logger().info('Encoder R L "%s"' % vector)
 
     
