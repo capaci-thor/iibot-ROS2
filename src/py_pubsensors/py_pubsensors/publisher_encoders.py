@@ -62,7 +62,7 @@ class DirectionPublisher(Node):
         #send msg
         msg.data = vector
         self.publisher_.publish(msg)
-        self.get_logger().info('Encoder R L "%s"' % vector)
+        self.get_logger().info('Encoder R L "%s"' % str(msg.data))
 
     
     
@@ -71,8 +71,6 @@ def ConvertStringsToBytes(src):
     for b in src:
         converted.append(ord(b))
     return converted        
-
-        
 
 
 
