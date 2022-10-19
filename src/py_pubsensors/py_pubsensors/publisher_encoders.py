@@ -26,7 +26,7 @@ class DirectionPublisher(Node):
         self.publisher_ = self.create_publisher(Int32MultiArray, 'count', 2)
         #El temporizador se crea con un callback para ejecutarse cada 
         # 0,5 segundos.
-        timer_period = 0.5  # seconds
+        timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         #es un contador utilizado en el callback
         #self.i = 0
