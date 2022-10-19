@@ -66,7 +66,7 @@ class DirectionPublisher(Node):
         #send msg
         msg.data = vector
         self.get_logger().info(str(vector))
-        self.publisher_.publish(msg)
+        #self.publisher_.publish(msg)
         self.get_logger().info('Encoder R L "%s"' % vector)
 
     
