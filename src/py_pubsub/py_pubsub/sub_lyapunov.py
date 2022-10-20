@@ -242,6 +242,8 @@ class MoveSubscriber(Node):
         self.uref.append( k1*math.cos(self.dseta[self.i] * self.iota[self.i]) )
         self.wref.append( k2*self.dseta[self.i] + (k1/self.dseta[self.i]) * math.cos(self.dseta[self.i]) * math.sin(self.dseta[self.i]) * (self.dseta[self.i] + q2 * self.psi[self.i]) )
 
+        self.get_logger().info('uref : "%s"' % str(self.uref[self.i]))
+        self.get_logger().info('wref : "%s"' % str(self.wref[self.i]))
         #rb
 
         robot(self.uref[self.i] , self.wref[self.i])
