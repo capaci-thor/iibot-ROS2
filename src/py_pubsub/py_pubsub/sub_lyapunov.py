@@ -1,6 +1,5 @@
 from cmath import sqrt
 from telnetlib import WILL
-from this import d
 import rclpy
 #Se importa Node porque se hara uso de el
 from rclpy.node import Node
@@ -142,22 +141,22 @@ inter_r = 0
 #Lyapunov
 #Condiciones iniciales
 #Creación de matrices
-x = []
-y = []
-phi = []
+#x = []
+#y = []
+#phi = []
 #Verdaderas condciones iniciales
-x.append(0)
-y.append(0)
-phi.append(0)
+#x.append(0)
+#y.append(0)
+#phi.append(0)
 
 #Errores
-iota = []
-dseta = []
-psi = []
+#iota = []
+#dseta = []
+#psi = []
 
 #Control
-uref = []
-wref = []
+#uref = []
+#wref = []
 
 class MoveSubscriber(Node):
 
@@ -168,6 +167,25 @@ class MoveSubscriber(Node):
         self.count = self.create_subscription(Int32MultiArray, 'count', self.listener_callback, 2)
         self.i = 0
         self.count  # prevent unused variable warning
+        #Lyapunov
+        #Condiciones iniciales
+        #Creación de matrices
+        self.x = []
+        self.y = []
+        self.phi = []
+        #Verdaderas condciones iniciales
+        self.x.append(0)
+        self.y.append(0)
+        self.phi.append(0)
+
+        #Errores
+        self.iota = []
+        self.dseta = []
+        self.psi = []
+
+        #Control
+        self.uref = []
+        self.wref = []
 
 
     def listener_callback(self, msg):
@@ -196,16 +214,7 @@ class MoveSubscriber(Node):
         self.lyapunov()
 
     def lyapunov(self):
-
-        global x
-        global y
-        global phi
-        global iota
-        global dseta
-        global psi
-        global uref
-        global wref
-
+        
         r = 6.6
         b = 10
         #Gains
@@ -224,24 +233,24 @@ class MoveSubscriber(Node):
         self.get_logger().info('vel: "%s"' % str(v))
         self.get_logger().info('w: "%s"' % str(w))
   
-        iota.append( math.sqrt(((Pxd-x(self.i))**2) + ((Pyd-y(self.i))**2)) )
-        dseta.append( math.atan2((Pyd-y(self.i)),(Pxd-x(self.i)) - phi(self.i)))
-        psi.append( math.atan2((Pyd-y(self.i)),(Pxd-x(self.i))-phid) )
+        self.iota.append( math.sqrt(((Pxd - self.x(self.i))**2) + ((Pyd - self.y(self.i))**2)) )
+        self.dseta.append( math.atan2((Pyd - self.y(self.i)),(Pxd - self.x(self.i)) - self.phi(self.i)))
+        self.psi.append( math.atan2((Pyd - self.y(self.i)),(Pxd - self.x(self.i))-phid) )
 
         #control
 
-        uref.append( k1*math.cos(dseta(self.i) * iota(self.i)) )
-        wref.append( k2*dseta(self.i) + (k1/dseta(self.i)) * math.cos(dseta(self.i)) * math.sin(dseta(self.i)) * (dseta(self.i) + q2 * psi(self.i)) )
+        self.uref.append( k1*math.cos(self.dseta(self.i) * self.iota(self.i)) )
+        self.wref.append( k2*self.dseta(self.i) + (k1/self.dseta(self.i)) * math.cos(self.dseta(self.i)) * math.sin(self.dseta(self.i)) * (self.dseta(self.i) + q2 * self.psi(self.i)) )
 
         #rb
 
-        robot(uref,wref)
-        xp = v * math.cos(phi(self.i))
-        yp = v * math.sin(phi(self.i))
-        phi.append( w + phi(self.i)) 
+        robot(self.uref,self.wref)
+        xp = v * math.cos(self.phi(self.i))
+        yp = v * math.sin(self.phi(self.i))
+        phi.append( w + self.phi(self.i)) 
 
-        x.append( xp + x(self.i) )
-        y.append( yp + y(self.i) )
+        self.x.append( xp + self.x(self.i) )
+        self.y.append( yp + self.y(self.i) )
 
 def robot(v, w):
     
