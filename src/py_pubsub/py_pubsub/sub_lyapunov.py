@@ -233,24 +233,25 @@ class MoveSubscriber(Node):
         self.get_logger().info('vel: "%s"' % str(v))
         self.get_logger().info('w: "%s"' % str(w))
   
-        self.iota.append( math.sqrt(((Pxd - self.x(self.i))**2) + ((Pyd - self.y(self.i))**2)) )
-        self.dseta.append( math.atan2((Pyd - self.y(self.i)),(Pxd - self.x(self.i)) - self.phi(self.i)))
-        self.psi.append( math.atan2((Pyd - self.y(self.i)),(Pxd - self.x(self.i))-phid) )
+        self.iota.append( math.sqrt(((Pxd - self.x[self.i])**2) + ((Pyd - self.y[self.i])**2)) )
+        self.dseta.append( math.atan2((Pyd - self.y[self.i]),(Pxd - self.x[self.i]) - self.phi[self.i]))
+        self.psi.append( math.atan2((Pyd - self.y[self.i]),(Pxd - self.x[self.i])-phid) )
 
         #control
 
-        self.uref.append( k1*math.cos(self.dseta(self.i) * self.iota(self.i)) )
-        self.wref.append( k2*self.dseta(self.i) + (k1/self.dseta(self.i)) * math.cos(self.dseta(self.i)) * math.sin(self.dseta(self.i)) * (self.dseta(self.i) + q2 * self.psi(self.i)) )
+        self.uref.append( k1*math.cos(self.dseta[self.i] * self.iota[self.i]) )
+        self.wref.append( k2*self.dseta[self.i] + (k1/self.dseta[self.i]) * math.cos(self.dseta[self.i]) * math.sin(self.dseta[self.i]) * (self.dseta[self.i] + q2 * self.psi[self.i]) )
 
         #rb
 
-        robot(self.uref,self.wref)
-        xp = v * math.cos(self.phi(self.i))
-        yp = v * math.sin(self.phi(self.i))
-        phi.append( w + self.phi(self.i)) 
+        robot(self.uref[self.i] , self.wref[self.i])
+        xp = v * math.cos(self.phi[self.i])
+        yp = v * math.sin(self.phi[self.i])
+        self.phi.append( w + self.phi[self.i]) 
 
-        self.x.append( xp + self.x(self.i) )
-        self.y.append( yp + self.y(self.i) )
+        self.x.append( xp + self.x[self.i] )
+        self.y.append( yp + self.y[self.i] )
+        self.i+=1
 
 def robot(v, w):
     
