@@ -258,6 +258,11 @@ class MoveSubscriber(Node):
 
         self.x.append( xp + self.x[self.i] )
         self.y.append( yp + self.y[self.i] )
+        if(self.uref < 0.13):
+            car.Car_Run(0,0)
+            
+        exit()
+
         self.i+=1
 
 def robot(v, w):
