@@ -260,13 +260,13 @@ def robot(v, w):
 
     if w > 0:
         l = int(w*(152.98*v) + 4.0434)
-        r = int((164.24*v) - 1.3834)
+        r = int(w*0.5(164.24*v) - 1.3834)
         ml = l if l <= 255 else 255
         mr = r if r <= 255 else 255
         car.Car_Run(ml,mr)
 
     elif w < 0:
-        l = int((152.98*v) + 4.0434)
+        l = int(w*0.5(152.98*v) + 4.0434)
         r = int(w*(164.24*v) - 1.3834)
         ml = l if l <= 255 else 255
         mr = r if r <= 255 else 255
