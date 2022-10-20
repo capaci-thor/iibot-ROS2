@@ -222,8 +222,8 @@ class MoveSubscriber(Node):
         k2 = 1
         q2 = 0.5
         #ref en metros
-        Pxd = 1
-        Pyd = 3.5
+        Pxd = 4
+        Pyd = 0
         phid = 0 * (math.pi/180)
         #kinematics
         wl = (2*math.pi*rpm_l)/(60)
@@ -256,16 +256,22 @@ class MoveSubscriber(Node):
         self.i+=1
 
 def robot(v, w):
-    
 
-    if w > 0:
+    if w >= -0.3 and w <= 0.3:
+        l = int((152.98*v) + 4.0434)
+        r = int((164.24*v) - 1.3834)
+        ml = l if l <= 255 else 255
+        mr = r if r <= 255 else 255
+        car.Car_Run(ml,mr)
+
+    if w > -0.3:
         l = int(w*(152.98*v) + 4.0434)
         r = int(w*0.5*(164.24*v) - 1.3834)
         ml = l if l <= 255 else 255
         mr = r if r <= 255 else 255
         car.Car_Run(ml,mr)
 
-    elif w < 0:
+    elif w < 0.3:
         l = int(w*0.5*(152.98*v) + 4.0434)
         r = int(w*(164.24*v) - 1.3834)
         ml = l if l <= 255 else 255
