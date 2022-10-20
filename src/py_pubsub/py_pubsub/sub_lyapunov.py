@@ -232,9 +232,12 @@ class MoveSubscriber(Node):
         w = (r*(wr-wl))/2*b
         self.get_logger().info('vel: "%s"' % str(v))
         self.get_logger().info('w: "%s"' % str(w))
-  
+        
         self.iota.append( math.sqrt(((Pxd - self.x[self.i])**2) + ((Pyd - self.y[self.i])**2)) )
-        self.dseta.append( math.atan2((Pyd - self.y[self.i]),(Pxd - self.x[self.i]) - self.phi[self.i]))
+        try:
+            self.dseta.append( math.atan2((Pyd - self.y[self.i]),(Pxd - self.x[self.i]) - self.phi[self.i]))
+        except:
+            self.dseta.append(0)
         self.psi.append( math.atan2((Pyd - self.y[self.i]),(Pxd - self.x[self.i])-phid) )
 
         #control
