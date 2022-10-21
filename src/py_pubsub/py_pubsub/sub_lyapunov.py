@@ -270,7 +270,7 @@ def robot(v, w, self):
     b = 0.1 #m
     wr = (v + (b*w))/r
     wl = (v - (b*w))/r
-    outL = int( (152.98 * wl) + 4.0434 ) + 2
+    outL = int( (152.98 * wl) + 4.0434 ) + 4
     outR = int( (164.24 * wr) + 1.3834 ) - 2
     self.get_logger().info('outL : "%s"' % str(outL))
     self.get_logger().info('outR : "%s"' % str(outR))
