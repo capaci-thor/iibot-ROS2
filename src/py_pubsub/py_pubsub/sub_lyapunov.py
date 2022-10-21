@@ -217,7 +217,7 @@ class MoveSubscriber(Node):
         q2 = 0.5
         #ref en metros
         Pxd = 1
-        Pyd = 1
+        Pyd = 0
         phid = 0 * (math.pi/180)
 
 
