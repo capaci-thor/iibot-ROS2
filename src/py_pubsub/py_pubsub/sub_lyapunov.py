@@ -271,7 +271,7 @@ def robot(v, w, self):
     wr = (v + (b*w))/r
     wl = (v - (b*w))/r
     outL = int( (152.98 * wl) + 4.0434 ) + 4
-    outR = int( (164.24 * wr) + 1.3834 ) - 2
+    outR = int( (164.24 * wr) + 1.3834 ) - 4
     self.get_logger().info('outL : "%s"' % str(outL))
     self.get_logger().info('outR : "%s"' % str(outR))
     car.Car_Run(outL , outR)
