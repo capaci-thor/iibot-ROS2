@@ -259,7 +259,7 @@ class MoveSubscriber(Node):
 
         self.x.append( xp + self.x[self.i] )
         self.y.append( yp + self.y[self.i] )
-        if(self.iota[self.i] < 0.2):
+        if(self.iota[self.i] < 0.15):
             car.Car_Run(0,0)
             exit()      
         
@@ -270,7 +270,7 @@ def robot(v, w, self):
     b = 0.1 #m
     wr = (v + (b*w))/r
     wl = (v - (b*w))/r
-    outL = int( (152.98 * wl) + 4.0434 )
+    outL = int( (152.98 * wl) + 4.0434 ) + 2
     outR = int( (164.24 * wr) + 1.3834 ) - 2
     self.get_logger().info('outL : "%s"' % str(outL))
     self.get_logger().info('outR : "%s"' % str(outR))
