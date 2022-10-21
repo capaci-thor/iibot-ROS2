@@ -259,7 +259,7 @@ class MoveSubscriber(Node):
 
         self.x.append( xp + self.x[self.i] )
         self.y.append( yp + self.y[self.i] )
-        if(self.iota[self.i] < 0.1):
+        if(self.iota[self.i] < 0.2):
             car.Car_Run(0,0)
             exit()      
         
