@@ -222,7 +222,7 @@ class MoveSubscriber(Node):
         k2 = 1
         q2 = 0.5
         #ref en metros
-        Pxd = 4
+        Pxd = 2
         Pyd = 0
         phid = 0 * (math.pi/180)
         #kinematics
@@ -252,7 +252,7 @@ class MoveSubscriber(Node):
         self.get_logger().info('wref : "%s"' % str(self.wref[self.i]))
         #rb
 
-        robot(self.uref[self.i] , self.wref[self.i])
+        robot(self.uref[self.i] , self.wref[self.i] , self)
         xp = v * math.cos(self.phi[self.i])
         yp = v * math.sin(self.phi[self.i])
         self.phi.append( w + self.phi[self.i]) 
@@ -265,13 +265,15 @@ class MoveSubscriber(Node):
         
         self.i+=1
 
-def robot(v, w):
+def robot(v, w, self):
     r = 0.06/2 #m
     b = 0.1 #m
     wr = (v + (b*w))/r
     wl = (v - (b*w))/r
     outL = int( (152.98 * wl) + 4.0434 )
     outR = int( (164.24 * wr) + 1.3834 )
+    self.get_logger().info('outL : "%s"' % str(outL))
+    self.get_logger().info('outR : "%s"' % str(outR))
     car.Car_Run(outR , outL)
 
 
