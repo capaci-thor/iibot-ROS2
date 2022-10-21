@@ -222,8 +222,8 @@ class MoveSubscriber(Node):
         k2 = 1
         q2 = 0.5
         #ref en metros
-        Pxd = 5
-        Pyd = 0
+        Pxd = 1
+        Pyd = 1
         phid = 0 * (math.pi/180)
         #kinematics
         wl = (2*math.pi*rpm_l)/(60)
