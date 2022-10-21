@@ -135,8 +135,6 @@ rpm_r = 0.0
 v_l = 0.0
 v_r = 0.0
 
-inter_l = 0
-inter_r = 0
 
 #Lyapunov
 #Condiciones iniciales
@@ -192,19 +190,15 @@ class MoveSubscriber(Node):
         c_r = msg.data[0]
         c_l = msg.data[1]
 
-        global inter_r
         global rpm_r
         global v_r
 
-        global inter_l
         global rpm_l
         global v_l
 
-        inter_r += c_r
         rpm_r = 60 * (c_r/20)
         v_r = (math.pi * 6.6 * rpm_r)/(100*60) #m/s
 
-        inter_l += c_l
         rpm_l = 60 * (c_l/20)
         v_l = (math.pi * 6.6 * rpm_l)/(100*60) #m/s
 
@@ -225,14 +219,20 @@ class MoveSubscriber(Node):
         Pxd = 1
         Pyd = 1
         phid = 0 * (math.pi/180)
-        #kinematics
+
+
+        #rpm to rad/s
         wl = (2*math.pi*rpm_l)/(60)
         wr = (2*math.pi*rpm_r)/(60)
+
+
+        #Linear vel
         v = (r*(wl+wr))/2
         w = (r*(wr-wl))/2*b
         self.get_logger().info('vel: "%s"' % str(v))
         self.get_logger().info('w: "%s"' % str(w))
-        
+
+        #Errors
         self.iota.append( math.sqrt(((Pxd - self.x[self.i])**2) + ((Pyd - self.y[self.i])**2)) )
         self.get_logger().info('iota: "%s"' % str(self.iota[self.i]))
         try:
@@ -241,18 +241,22 @@ class MoveSubscriber(Node):
             self.dseta.append(0)
         self.psi.append( math.atan2((Pyd - self.y[self.i]),(Pxd - self.x[self.i])-phid) )
 
-        #control
 
-        self.uref.append( k1*math.cos(self.dseta[self.i] * self.iota[self.i]) )
+        #control
+        self.uref.append( k1*math.cos(self.dseta[self.i])* self.iota[self.i]) 
         try:
-            self.wref.append( k2*self.dseta[self.i] + (k1/self.dseta[self.i]) * math.cos(self.dseta[self.i]) * math.sin(self.dseta[self.i]) * (self.dseta[self.i] + q2 * self.psi[self.i]) )
+            self.wref.append( k2*self.dseta[self.i] + (k1/self.dseta[self.i]) * (math.cos(self.dseta[self.i]) * math.sin(self.dseta[self.i]) * (self.dseta[self.i] + (q2 * self.psi[self.i])) ))
         except:
             self.wref.append(0)
+
+
         self.get_logger().info('uref : "%s"' % str(self.uref[self.i]))
         self.get_logger().info('wref : "%s"' % str(self.wref[self.i]))
-        #rb
 
+        #robot output
         robot(self.uref[self.i] , self.wref[self.i] , self)
+
+        #Distence
         xp = v * math.cos(self.phi[self.i])
         yp = v * math.sin(self.phi[self.i])
         self.phi.append( w + self.phi[self.i]) 
@@ -266,7 +270,7 @@ class MoveSubscriber(Node):
         self.i+=1
 
 def robot(v, w, self):
-    r = 6.6/2 #m
+    r = 0.066/2 #cm
     b = 0.1 #m
     wr = (v + (b*w))/r
     wl = (v - (b*w))/r
