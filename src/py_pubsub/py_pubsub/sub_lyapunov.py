@@ -215,8 +215,8 @@ class MoveSubscriber(Node):
 
     def lyapunov(self):
         
-        r = 6.6
-        b = 10
+        r = 0.066/2
+        b = 0.10
         #Gains
         k1 = 1
         k2 = 1
@@ -265,29 +265,13 @@ class MoveSubscriber(Node):
         self.i+=1
 
 def robot(v, w):
-
-    if w >= -0.3 and w <= 0.3:
-        l = int((152.98*v) + 4.0434)
-        r = int((164.24*v) - 1.3834)
-        ml = l if l <= 255 else 255
-        mr = r if r <= 255 else 255
-        car.Car_Run(ml,mr)
-
-    if w > -0.3:
-        l = int(w*(152.98*v) + 4.0434)
-        r = int(w*0.5*(164.24*v) - 1.3834)
-        ml = l if l <= 255 else 255
-        mr = r if r <= 255 else 255
-        car.Car_Run(ml,mr)
-
-    elif w < 0.3:
-        l = int(w*0.5*(152.98*v) + 4.0434)
-        r = int(w*(164.24*v) - 1.3834)
-        ml = l if l <= 255 else 255
-        mr = r if r <= 255 else 255
-        car.Car_Run(ml,mr)
-
-
+    r = 0.06/2 #m
+    b = 0.1 #m
+    wr = (v + (b*w))/r
+    wl = (v - (b*w))/r
+    outL = int( (152.98 * wl) + 4.0434 )
+    outR = int( (164.24 * wr) + 1.3834 )
+    car.Car_Run(outR , outL)
 
 
 def main(args=None):
