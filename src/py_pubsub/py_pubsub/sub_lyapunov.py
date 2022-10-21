@@ -270,7 +270,7 @@ class MoveSubscriber(Node):
         self.i+=1
 
 def robot(v, w, self):
-    r = 0.066/2 #cm
+    r = 6.6/2 #cm
     b = 0.1 #m
     wr = (v + (b*w))/r
     wl = (v - (b*w))/r
