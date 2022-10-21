@@ -234,6 +234,7 @@ class MoveSubscriber(Node):
         self.get_logger().info('w: "%s"' % str(w))
         
         self.iota.append( math.sqrt(((Pxd - self.x[self.i])**2) + ((Pyd - self.y[self.i])**2)) )
+        self.get_logger().info('iota: "%s"' % str(self.iota[self.i + 1]))
         try:
             self.dseta.append( math.atan2((Pyd - self.y[self.i]),(Pxd - self.x[self.i]) - self.phi[self.i]))
         except:
