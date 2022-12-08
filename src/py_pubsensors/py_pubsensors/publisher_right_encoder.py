@@ -35,6 +35,7 @@ class ConterLeftPublisher(Node):
         global ser
         msg = Int32() 
         #data = -1
+        self.get_logger().info('Writing')
         ser.write("0".encode())
         x=ser.readline().decode()
         x = x.replace("\n","")
