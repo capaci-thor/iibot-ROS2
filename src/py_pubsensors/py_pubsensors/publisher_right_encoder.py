@@ -35,15 +35,20 @@ class ConterLeftPublisher(Node):
         global ser
         msg = Int32() 
         #data = -1
-        ser.write("0".encode())
-        x=ser.readline().decode()
-        x = x.replace("\n","")
-        x = x.replace("\r","")
-        data = int(x)
-        msg.data = data
-        self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
-        #self.i += 1.0
+        try:
+
+            ser.write("0".encode())
+            x=ser.readline().decode()
+            x = x.replace("\n","")
+            x = x.replace("\r","")
+            data = int(x)
+            msg.data = data
+            self.publisher_.publish(msg)
+            self.get_logger().info('Publishing: "%s"' % msg.data)
+            #self.i += 1.0
+        except:
+            self.get_logger().info('Error')
+
 
 
 def ConvertStringsToBytes(src):
