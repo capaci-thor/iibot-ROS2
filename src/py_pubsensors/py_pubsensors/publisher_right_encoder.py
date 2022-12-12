@@ -10,7 +10,7 @@ from time import sleep
 from serial import *
 
 ser = Serial(
-        port='/dev/ttyS0',
+        port='/dev/ttyAMA0',
         baudrate = 9600,
         parity=PARITY_NONE,
         stopbits=STOPBITS_ONE,
